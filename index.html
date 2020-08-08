@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js\react.development.js "></script>
+    <script src=" js\react-dom.development.js"></script>
+    <script src=" js\babel.min.js"></script>
+    <title>COVID 19</title>
+    <style>
+        td{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <table style="width: 100%" ;>
+        <thead>
+            <th>no</th>
+            <th>COUNTRY</th>
+            <th>CONFIRMED CASES</th>
+            <th>DEATHS</th>
+            <th>ACTIVE</th>
+            <th>RECOVERED</th>
+        </thead>
+        <tbody id="main">
+
+        </tbody>
+    </table>
+
+    <script type="text/babel">
+        const data = [
+            { id: 1, COUNTRY: "Colombia", CONFIRMED: 331, DEATHS: 7, RECOVERED: 163, ACTIVE: 16, },
+            { id: 2, COUNTRY: "Chile", CONFIRMED: 4344, DEATHS: 82, RECOVERED: 3980, ACTIVE: 282, },
+            { id: 3, COUNTRY: "Peru", CONFIRMED: 18190, DEATHS: 869, RECOVERED: 0, ACTIVE: 17321, },
+            { id: 4, COUNTRY: "Chile", CONFIRMED: 4911, DEATHS: 74, RECOVERED: 4152, ACTIVE: 685 },
+            { id: 5, COUNTRY: "Russia", CONFIRMED: 9165, DEATHS: 207, RECOVERED: 8453, ACTIVE: 505, },
+            { id: 6, COUNTRY: "Netherlands", CONFIRMED: 396, DEATHS:3, RECOVERED: 114, ACTIVE: 279, },
+            { id: 7, COUNTRY: "India", CONFIRMED: 2049, DEATHS: 3, RECOVERED: 1326, ACTIVE: 720, },
+            { id: 8, COUNTRY: "United Kingdom", CONFIRMED: 3, DEATHS: 0, RECOVERED: 3, ACTIVE: 0, }
+        ];
+
+
+
+        function App(props) {
+            console.log(props)
+            return (
+                <tr>
+                    <td>{props.id}</td>
+                    <td>{props.text}</td>
+                    <td> {props.CONFIRMED}</td>
+                    <td> {props.DEATHS}</td>
+                    <td> {props.RECOVERED}</td>
+                    <td> {props.ACTIVE}</td>
+                </tr>
+            );
+        }
+       let colorList = data.map(item => <App key={item.id} id={item.id}  text={item.COUNTRY} CONFIRMED={item.CONFIRMED} DEATHS={item.DEATHS} RECOVERED={item.RECOVERED} ACTIVE={item.ACTIVE} />);
+        ReactDOM.render(
+            <React.StrictMode>
+                {colorList}
+            </React.StrictMode>, document.getElementById("main"));
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
